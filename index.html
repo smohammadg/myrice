@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Prime Rice – Premium Grains Market</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- MOBILE SIDE NAV OVERLAY -->
+  <div class="sidenav-overlay" id="sidenavOverlay"></div>
+
+  <!-- MOBILE SIDE NAV — dark bg, 6 items each with dropdown arrow -->
+  <aside class="sidenav" id="sidenav" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <ul class="sidenav__list">
+      <li class="sidenav__item sidenav__item--active">
+        <a href="#home" class="sidenav__link">Home</a>
+      </li>
+      <li class="sidenav__item sidenav__item--has-sub">
+        <button class="sidenav__link sidenav__toggle" aria-expanded="false">
+          About Us <i class="fas fa-chevron-down sidenav__arrow"></i>
+        </button>
+        <ul class="sidenav__sub">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Our Team</a></li>
+        </ul>
+      </li>
+      <li class="sidenav__item sidenav__item--has-sub">
+        <button class="sidenav__link sidenav__toggle" aria-expanded="false">
+          Shop <i class="fas fa-chevron-down sidenav__arrow"></i>
+        </button>
+        <ul class="sidenav__sub">
+          <li><a href="#">All Products</a></li>
+          <li><a href="#">Bulk Orders</a></li>
+        </ul>
+      </li>
+      <li class="sidenav__item sidenav__item--has-sub">
+        <button class="sidenav__link sidenav__toggle" aria-expanded="false">
+          Categories <i class="fas fa-chevron-down sidenav__arrow"></i>
+        </button>
+        <ul class="sidenav__sub">
+          <li><a href="#">Basmati Rice</a></li>
+          <li><a href="#">Sona Masoori</a></li>
+          <li><a href="#">Brown Rice</a></li>
+        </ul>
+      </li>
+      <li class="sidenav__item sidenav__item--has-sub">
+        <button class="sidenav__link sidenav__toggle" aria-expanded="false">
+          Products <i class="fas fa-chevron-down sidenav__arrow"></i>
+        </button>
+        <ul class="sidenav__sub">
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Best Sellers</a></li>
+        </ul>
+      </li>
+      <li class="sidenav__item sidenav__item--has-sub">
+        <button class="sidenav__link sidenav__toggle" aria-expanded="false">
+          Contact Us <i class="fas fa-chevron-down sidenav__arrow"></i>
+        </button>
+        <ul class="sidenav__sub">
+          <li><a href="#">Get In Touch</a></li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- ================================================
+       HEADER
+       Desktop: Logo | Search | 4 icons | (no hamburger)
+       Green nav bar: Home | About Us▼ | Shop▼ | Categories▼ | Products▼ | Contact Us | Call Us right
+       Tablet: Same as desktop — NO hamburger, full nav bar visible
+       Mobile: Logo | icons | hamburger  +  search bar below
+  ================================================ -->
+  <header class="header" id="header">
+    <div class="header__top">
+      <div class="container header__top-inner">
+
+         <!-- Logo -->
+        <a href="#home" class="header__logo">
+          <img src="./images/header-logo.jpg" alt="Prime Rice" width="200" />
+        </a>
+
+       
+        <!-- Right icons — desktop & tablet -->
+        <div class="header__actions">
+           <!-- Search bar — desktop & tablet -->
+        <div class="header__search">
+          <input type="text" placeholder="Search for products..." aria-label="Search products" />
+          <button type="button" aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
+
+          <button class="header__icon-btn" aria-label="Location"><i class="fas fa-map-marker-alt"></i></button>
+          <button class="header__icon-btn" aria-label="Wishlist"><i class="fas fa-heart"></i></button>
+          <button class="header__icon-btn" aria-label="Account"><i class="fas fa-user"></i></button>
+          <button class="header__icon-btn header__cart-btn" aria-label="Cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="header__cart-badge" id="cartBadge">3</span>
+          </button>
+          <!-- Hamburger — MOBILE ONLY (hidden on desktop & tablet) -->
+          <button class="header__hamburger mobile-only" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="sidenav">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Green Nav Bar — desktop & tablet ALWAYS visible, mobile hidden -->
+    <!-- FIX: "Home" is plain white text (no pill), only About Us/Shop/Categories/Products have yellow pills -->
+    <nav class="header__nav" id="desktopNav" aria-label="Main navigation">
+      <div class="container header__nav-inner">
+        <ul class="header__nav-list">
+
+          <!-- Home: plain white, NO pill, NO dropdown — static active -->
+          <li class="header__nav-item" id="navHome">
+            <a href="#home" class="header__nav-link header__nav-link--home">Home</a>
+          </li>
+
+          <!-- About Us: yellow pill, has dropdown -->
+          <li class="header__nav-item header__nav-item--has-drop">
+            <a href="#" class="header__nav-link">About Us <i class="fas fa-chevron-down nav-caret"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Our Team</a></li>
+            </ul>
+          </li>
+
+          <!-- Shop: yellow pill, has dropdown -->
+          <li class="header__nav-item header__nav-item--has-drop">
+            <a href="#" class="header__nav-link">Shop <i class="fas fa-chevron-down nav-caret"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="#">All Products</a></li>
+              <li><a href="#">Bulk Orders</a></li>
+            </ul>
+          </li>
+
+          <!-- Categories: yellow pill, has dropdown -->
+          <li class="header__nav-item header__nav-item--has-drop">
+            <a href="#" class="header__nav-link">Categories <i class="fas fa-chevron-down nav-caret"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="#">Basmati Rice</a></li>
+              <li><a href="#">Sona Masoori</a></li>
+              <li><a href="#">Brown Rice</a></li>
+            </ul>
+          </li>
+
+          <!-- Products: yellow pill, has dropdown -->
+          <li class="header__nav-item header__nav-item--has-drop">
+            <a href="#" class="header__nav-link">Products <i class="fas fa-chevron-down nav-caret"></i></a>
+            <ul class="header__dropdown">
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Best Sellers</a></li>
+            </ul>
+          </li>
+
+          <!-- Contact Us: plain white, no pill -->
+          <li class="header__nav-item">
+            <a href="#contact" class="header__nav-link">Contact Us</a>
+          </li>
+
+        </ul>
+        <!-- Call Us on right side of nav -->
+        <a href="tel:+18001234580" class="header__nav-phone">
+          <i class="fas fa-phone-alt fa-flip-horizontal"></i> Call Us: +1-800-123.45.80
+        </a>
+      </div>
+    </nav>
+
+    <!-- Mobile Search Bar — shown below header on mobile only -->
+    <div class="header__mobile-search">
+      <div class="container">
+        <input type="text" placeholder="Search for products..." aria-label="Search" />
+        <button type="button" aria-label="Search"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================================
+      Slider
+  ================================================ -->
+
+  <section class="hero-slider" id="home" aria-label="Hero slider">
+
+    <!-- SLIDE TRACK -->
+    <div class="hero-slider__track" id="heroTrack">
+
+      <!-- SLIDE 1 -->
+      <div class="hero__slide hero__slide--active"
+           style="background-image:url('./images/Slider-1.jpg');">
+        <div class="hero__slide-overlay"></div>
+        <div class="container hero__slide-inner">
+          <div class="hero__content" data-anim>
+            <span class="hero__tag">100% Natural &amp; Fresh</span>
+            <h1 class="hero__title">Premium Grains Market<br>With Prime Rice Online</h1>
+            <p class="hero__desc">Lorem ipsum is simply dummy text of the printing and typesetting industry. Been the industry's standard dummy text ever since the 1500s.</p>
+            <div class="hero__cta-group">
+              <a href="#" class="btn btn--hero-cta">Explore More <i class="fas fa-arrow-right"></i></a>
+              <a href="#categories" class="btn btn--hero-outline">Browse Categories</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="hero__slide"
+           style="background-image:url('./images/slider-2.jpeg');">
+        <div class="hero__slide-overlay hero__slide-overlay--dark"></div>
+        <div class="container hero__slide-inner">
+          <div class="hero__content" data-anim>
+            <span class="hero__tag hero__tag--white">Farm Fresh Delivery</span>
+            <h1 class="hero__title hero__title--white">From Our Farms<br>To Your Kitchen Table</h1>
+            <p class="hero__desc hero__desc--white">We source directly from trusted farmers across India, ensuring every grain is fresh, pure, and packed with natural goodness.</p>
+            <div class="hero__cta-group">
+              <a href="#" class="btn btn--hero-cta">Shop Now <i class="fas fa-shopping-cart"></i></a>
+              <a href="#best-selling" class="btn btn--hero-outline-white">Best Sellers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="hero__slide"
+           style="background-image:url('./images/slider-3.png');">
+        <div class="hero__slide-overlay hero__slide-overlay--dark"></div>
+        <div class="container hero__slide-inner">
+          <div class="hero__content" data-anim>
+            <span class="hero__tag hero__tag--white">Certified Organic</span>
+            <h1 class="hero__title hero__title--white">Pure Organic Rice<br>For a Healthier Life</h1>
+            <p class="hero__desc hero__desc--white">Our certified organic range is grown without pesticides, preserving natural nutrients for a cleaner, healthier meal every time.</p>
+            <div class="hero__cta-group">
+              <a href="#" class="btn btn--hero-cta">View Organic Range <i class="fas fa-leaf"></i></a>
+              <a href="#" class="btn btn--hero-outline-white">Our Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- SLIDE 4 -->
+      <div class="hero__slide"
+           style="background-image:url('./images/Slider-4.jpeg');">
+        <div class="hero__slide-overlay"></div>
+        <div class="container hero__slide-inner">
+          <div class="hero__content" data-anim>
+            <span class="hero__tag">Bulk Orders Available</span>
+            <h1 class="hero__title">Get Free Delivery<br>&amp; 10% Discount Today</h1>
+            <p class="hero__desc">Order in bulk and save more. We offer wholesale pricing for restaurants, hotels, and retailers with free doorstep delivery across the country.</p>
+            <div class="hero__cta-group">
+              <a href="#" class="btn btn--hero-cta">Order in Bulk <i class="fas fa-box"></i></a>
+              <a href="#" class="btn btn--hero-outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /track -->
+
+    <!-- PREV / NEXT ARROWS -->
+    <button class="hero-slider__arrow hero-slider__arrow--prev" id="heroSliderPrev" aria-label="Previous slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="hero-slider__arrow hero-slider__arrow--next" id="heroSliderNext" aria-label="Next slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- DOTS -->
+    <div class="hero-slider__dots" id="heroSliderDots" role="tablist" aria-label="Slide navigation">
+      <button class="hero-slider__dot hero-slider__dot--active" role="tab" aria-selected="true"  aria-label="Slide 1" data-idx="0"></button>
+      <button class="hero-slider__dot" role="tab" aria-selected="false" aria-label="Slide 2" data-idx="1"></button>
+      <button class="hero-slider__dot" role="tab" aria-selected="false" aria-label="Slide 3" data-idx="2"></button>
+      <button class="hero-slider__dot" role="tab" aria-selected="false" aria-label="Slide 4" data-idx="3"></button>
+    </div>
+
+    <!-- SLIDE COUNTER -->
+    <div class="hero-slider__counter">
+      <span id="heroCurrentSlide">01</span> / <span id="heroTotalSlides">04</span>
+    </div>
+
+  </section>
+
+
+  <!-- ================================================
+       CATEGORIES
+       FIX: Card = outer white bordered card + inner cream square image area
+       Brand name bold centered below the cream square
+       Arrows top-right (circle buttons)
+  ================================================ -->
+  <section class="section categories" id="categories">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2 class="section__title">Categories</h2>
+          <p class="section__sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="section__arrows">
+          <button class="arrow-btn" id="catPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <button class="arrow-btn" id="catNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="slider-track-wrap">
+        <div class="slider-track" id="catTrack">
+
+          <div class="cat-card">
+            <div class="cat-card__img-box">
+                <!-- Replace the span below with your actual product image: -->
+                <img src="./images/categories/godavari-categories-1.jpg" alt="Brand Godawari" />
+            </div>
+            <p class="cat-card__name">Brand Godawari</p>
+          </div>
+
+          <div class="cat-card">
+            <div class="cat-card__img-box">
+              <img src="./images/categories/categories-2.jpg" alt="Brand Godawari" />
+            </div>
+            <p class="cat-card__name">Brand Empire</p>
+          </div>
+
+          <div class="cat-card">
+            <div class="cat-card__img-box">
+              <img src="./images/categories/categories-3.jpg" alt="Brand Godawari" />
+            </div>
+            <p class="cat-card__name">Brand Dollar</p>
+          </div>
+
+          <div class="cat-card">
+            <div class="cat-card__img-box">
+              <img src="./images/categories/categories-4.jpg" alt="Brand Godawari" />
+            </div>
+            <p class="cat-card__name">Brand Akam Gold</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       FUTURE PRODUCTS
+       FIX: Card = white/light grey bordered card
+       Top: large image area (light grey bg, product name in grey center)
+       Below divider: green tag icon + brand, seller, rice name + weight,
+       MRP strikethrough, Our Price in green bold,
+       Bottom: - 1 + qty control + green/yellow Add button
+  ================================================ -->
+  <section class="section future-products" id="future-products">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2 class="section__title">Future Products</h2>
+          <p class="section__sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="section__arrows">
+          <button class="arrow-btn" id="fpPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <button class="arrow-btn" id="fpNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="slider-track-wrap">
+        <div class="slider-track" id="fpTrack">
+
+          <div class="prod-card">
+            <div class="prod-card__img-wrap">
+              <span class="prod-card__badge prod-card__badge--new">New</span>
+               <img src="./images/feature-products/sumadhura-feature-products-1.png" alt="Brand Godawari" />
+            </div>
+            <div class="prod-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Sumadhura</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__meta">
+                <span>Sumadhura Rice</span><span class="prod-card__weight">25Kg</span>
+              </div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹350.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹450.00</strong></span>
+              </div>
+              <!-- <div class="prod-card__actions">
+                <div class="qty">
+                  <button class="qty__btn qty__btn--minus">-</button>
+                  <span class="qty__val">1</span>
+                  <button class="qty__btn qty__btn--plus">+</button>
+                </div>
+                <button class="btn btn--add">Add</button>
+              </div> -->
+              <div class="product-controls">
+              <div class="quantity-selector">
+                <button class="qty-btn minus">&minus;</button>
+                <span class="qty-number">1</span>
+                <button class="qty-btn plus">&plus;</button>
+              </div>
+              <button class="add-btn">Add</button>
+            </div>
+
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-card__img-wrap">
+              <span class="prod-card__badge prod-card__badge--sale">Sale</span>
+               <img src="./images/feature-products/sumadhura-feature-products-2.png" alt="Brand Godawari" />
+            </div>
+            <div class="prod-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Karnool</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__meta">
+                <span>Sumadhura Rice</span><span class="prod-card__weight">25Kg</span>
+              </div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹350.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹450.00</strong></span>
+              </div>
+              <!-- <div class="prod-card__actions" style="border: 1px solid #000;">
+                <div class="qty">
+                  <button class="qty__btn qty__btn--minus">-</button>
+                  <span class="qty__val">1</span>
+                  <button class="qty__btn qty__btn--plus">+</button>
+                </div>
+                <button class="btn btn--add btn--add-yellow">Add</button>
+              </div> -->
+               <div class="product-controls">
+                <div class="quantity-selector">
+                  <button class="qty-btn minus">&minus;</button>
+                  <span class="qty-number">1</span>
+                  <button class="qty-btn plus">&plus;</button>
+                </div>
+                <button class="add-btn">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-card__img-wrap">
+              <img src="./images/feature-products/sumadhura-feature-products-3.png" alt="Brand Godawari" />
+            </div>
+            <div class="prod-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Sumadhura</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__meta">
+                <span>Sumadhura Rice</span><span class="prod-card__weight">25Kg</span>
+              </div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹350.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹450.00</strong></span>
+              </div>
+              <!-- <div class="prod-card__actions" style="border: 1px solid #000;">
+                <div class="qty">
+                  <button class="qty__btn qty__btn--minus">-</button>
+                  <span class="qty__val">1</span>
+                  <button class="qty__btn qty__btn--plus">+</button>
+                </div>
+                <button class="btn btn--add">Add</button>
+              </div> -->
+              <div class="product-controls">
+                <div class="quantity-selector">
+                  <button class="qty-btn minus">&minus;</button>
+                  <span class="qty-number">1</span>
+                  <button class="qty-btn plus">&plus;</button>
+                </div>
+                <button class="add-btn">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-card__img-wrap">
+              <img src="./images/feature-products/sumadhura-feature-products-4.png" alt="Brand Godawari" />
+            </div>
+            <div class="prod-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Animaas</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__meta">
+                <span>Sumadhura Rice</span><span class="prod-card__weight">25Kg</span>
+              </div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹350.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹450.00</strong></span>
+              </div>
+              <!-- <div class="prod-card__actions" style="border: 1px solid #000;">
+                <div class="qty">
+                  <button class="qty__btn qty__btn--minus">-</button>
+                  <span class="qty__val">1</span>
+                  <button class="qty__btn qty__btn--plus">+</button>
+                </div>
+                <button class="btn btn--add">Add</button>
+              </div> -->
+              <div class="product-controls">
+                <div class="quantity-selector">
+                  <button class="qty-btn minus">&minus;</button>
+                  <span class="qty-number">1</span>
+                  <button class="qty-btn plus">&plus;</button>
+                </div>
+                <button class="add-btn">Add</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BULK ORDERS BANNER -->
+  <section class="bulk-banner">
+    <div class="container">
+      <div class="bulk-banner__grid">
+        <div class="bulk-banner__main">
+          <!-- <img src="./images/bulk-order-1.jpg" alt="Bulk Orders" /> -->
+           <div class="bulk-banner__main-label">Bulk Orders</div>
+        </div>
+        <div class="bulk-banner__aside">
+          <div class="bulk-banner__green-card">
+            <h3>Free Delivery<br> &amp; Get 10% <br>Discount!</h3>
+            <a href="#">Read More</a>
+          </div>
+           <div class="bulk-banner__green-card cant-find">
+            <h3>Can't find your item? <br> Submit a request here.</h3>
+            <a href="#">Read More</a>
+          </div>
+          <!-- <div class="bulk-banner__img-card">
+            <div class="bulk-banner__img-card-text">
+              <h3>Can't find your item? <br> Submit a request here.</h3>
+              <a href="#">Read More</a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       FEATURED BRANDS
+       FIX: Full-width rice grains photo on top (tall, fills width)
+       Below: solid green bar — "Featured Brands" title centered
+       5 white rectangular logo boxes in a row
+       3 dots pagination below logos
+  ================================================ -->
+  
+  <section class="featured-brands">
+    <div class="featured-brands__rice-img">
+      <img src="./images/bg-image.jpg" alt="Rice grains" />
+    </div>
+    <div class="container featured-brands-container">
+    <div class="featured-brands__bar">
+      <div class="container featured-brands__bar-inner">
+        <h2 class="featured-brands__title">Featured Brands</h2>
+        <div class="featured-brands__logos">
+          <div class="brand-logo-box"><img src="./images/brand-logos/sumadhura.png" alt="Sumadhura" /></div>
+           <div class="brand-logo-box"><img src="./images/brand-logos/amira.png" alt="Sumadhura" /></div>
+            <div class="brand-logo-box"><img src="./images/brand-logos/laila-1.png" alt="Sumadhura" /></div>
+             <div class="brand-logo-box"><img src="./images/brand-logos/laila-2.png" alt="Sumadhura" /></div>
+              <div class="brand-logo-box"><img src="./images/brand-logos/tilda.png" alt="Sumadhura" /></div>
+          <!-- <div class="brand-logo-box"><span>Sumadhura</span></div>
+          <div class="brand-logo-box"><span>AMIRA</span></div>
+          <div class="brand-logo-box"><span>Tilda</span></div>
+          <div class="brand-logo-box"><span>Laila</span></div>
+          <div class="brand-logo-box"><span>Lalla</span></div> -->
+        </div>
+        <div class="featured-brands__dots">
+          <span class="fb-dot"></span>
+          <span class="fb-dot fb-dot--active"></span>
+          <span class="fb-dot"></span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  
+
+  <!-- BEST SELLING PRODUCTS -->
+  <section class="section best-selling" id="best-selling">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2 class="section__title">Best Selling Products</h2>
+          <p class="section__sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="section__arrows">
+          <button class="arrow-btn" id="bsPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <button class="arrow-btn" id="bsNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="best-selling__layout">
+        <div class="best-selling__featured">
+          <div class="bs-feat-card">
+            <img src="./images/best-selling-products/product-2-big.png" alt="Best Seller" />
+            <div class="bs-feat-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Sumadhura</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__stars">★★★★★</div>
+              <div class="prod-card__meta"><span>Mango Rice: <b>26Kg</b></span><span class="prod-card__weight">500g</span></div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹100.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹300.00</strong></span>
+              </div>
+              <button class="btn btn--add btn--full-w">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="best-selling__grid">
+          <!-- <div class="bs-grid-card">
+            <img src="./images/best-selling-products/product-1-sm.png" alt="Sumadhura" />
+            <div class="bs-grid-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Sumadhura</div>
+              <div class="prod-card__stars">★★★★★</div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹100.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹82.00</strong></span>
+              </div>
+              <button class="btn btn--outline-sm">Add to Cart</button>
+            </div>
+          </div> -->
+            <div class="bs-grid-card">
+            <img src="./images/best-selling-products/product-1-sm.png" alt="Sumadhura 2" />
+            <div class="bs-grid-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Sumadhura</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__stars">★★★★★</div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹100.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹82.00</strong></span>
+              </div>
+              <button class="btn btn--outline-sm">Add to Cart</button>
+            </div>
+          </div>
+          <div class="bs-grid-card">
+            <img src="./images/best-selling-products/product-2-sm.png" alt="Sumadhura 2" />
+            <div class="bs-grid-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Sumadhura</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__stars">★★★★★</div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹100.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹82.00</strong></span>
+              </div>
+              <button class="btn btn--outline-sm">Add to Cart</button>
+            </div>
+          </div>
+          <div class="bs-grid-card">
+            <img src="./images/best-selling-products/product-3-sm.png" alt="Karnool" />
+            <div class="bs-grid-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Karnool</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__stars">★★★★☆</div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹100.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹82.00</strong></span>
+              </div>
+              <button class="btn btn--outline-sm">Add to Cart</button>
+            </div>
+          </div>
+          <div class="bs-grid-card">
+            <img src="./images/best-selling-products/product-4-sm.png" alt="Akam Gold" />
+            <div class="bs-grid-card__body">
+              <div class="prod-card__brand"><i class="fas fa-tag"></i> Brand Akam Gold</div>
+              <div class="prod-card__seller">Sell By: Cali Groceries PVT LTD</div>
+              <div class="prod-card__stars">★★★★★</div>
+              <div class="prod-card__price">
+                <span class="prod-card__mrp">MRP: ₹100.00</span>
+                <span class="prod-card__our">Our Price: <strong>₹82.00</strong></span>
+              </div>
+              <button class="btn btn--outline-sm">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR AGRICULTURE PROCESS -->
+   <div class="container">
+  <section class="agri-process">
+    <div class="container agri-process__inner">
+      <h2 class="agri-process__title">Our Agriculture Process</h2>
+      <p class="agri-process__sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="agri-process__steps">
+        <div class="agri-step">
+          <div class="agri-step__icon">
+            <i class="fas fa-tractor"></i>
+          </div>
+          <h4>Field Planning</h4>
+          <p>Effective field planning is the foundation of a successful harvest.</p>
+        </div>
+        <div class="agri-step">
+          <div class="agri-step__icon"><i class="fas fa-seedling"></i></div>
+          <h4>Growth Monitoring</h4>
+          <p>Growth monitoring benefits crops by ensuring healthy crops.</p>
+        </div>
+        <div class="agri-step">
+          <div class="agri-step__icon"><i class="fas fa-leaf"></i></div>
+          <h4>Plant Nurture</h4>
+          <p>Plant nurture provides plants with care and resources to thrive.</p>
+        </div>
+        <div class="agri-step">
+          <div class="agri-step__icon"><i class="fas fa-truck"></i></div>
+          <h4>Farm Delivery</h4>
+          <p>Farm delivery brings fresh produce quickly and efficiently.</p>
+        </div>
+      </div>
+      <a href="#" class="btn btn--outline-white">Explore More <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+</div>
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo-wrap">
+          <div class="footer__logo-icon">
+            <img src="./images/footer-logo.png" alt="Prime Rice" />
+          </div>
+          <span class="footer__logo-text">Prime Rice</span>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>Nulla nec mi vel lorem tempor sodales.</p>
+        <ul class="footer__contact-list">
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <div><strong>Address</strong><span>20 High Street ABINGDON, OX14 3AB</span></div>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <div><strong>Phone</strong><span>1-800-123-45-67</span></div>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <div><strong>Email</strong><span>sales@primerisers.com</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Site Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer__newsletter">
+        <h4 class="footer__heading">Sign Up &amp; Save</h4>
+        <p>Get exclusive offers, free shipping events &amp; more by signing up for promotional emails.</p>
+        <div class="footer__newsletter-form">
+          <input type="email" placeholder="Enter Your Email..." aria-label="Email for newsletter" />
+          <button type="button" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="footer__follow">
+          <h5>Follow Us</h5>
+          <div class="footer__socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer__app-badges">
+          <a href="#"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="App Store" 
+            style="width: 100px; height: 34px;"/></a>
+          <a href="#"><img src="	https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png" alt="Google Play" 
+             style="width: 100px; height: 34px;"/></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>Business name 1.0. All rights reserved by App Server.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

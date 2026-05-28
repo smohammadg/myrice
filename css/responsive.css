@@ -1,0 +1,260 @@
+/* =============================================
+   PRIME RICE — responsive.css  (v3)
+   Tablet ≤ 1024px  |  Mobile ≤ 767px
+   ============================================= */
+
+/* =============================================
+   TABLET (≤ 1024px)
+   FIX 2: NO hamburger — full green nav still visible
+   ============================================= */
+@media (max-width: 1024px) {
+
+  /* Header top */
+  .header__top-inner { gap: 10px; }
+  .header__logo-text { font-size: 1.15rem; }
+  .header__search { max-width: 280px; }
+
+  /* FIX 2: hamburger stays hidden on tablet */
+  .header__hamburger { display: none !important; }
+  .mobile-only { display: none !important; }
+
+  /* Nav: compress spacing on tablet */
+  .header__nav-link--plain { padding: 0 10px; font-size: .8rem; }
+  .header__nav-link--pill  { padding: 5px 12px; font-size: .78rem; }
+  .header__nav-phone { font-size: .78rem; }
+
+  /* ---- Hero Slider — Tablet ---- */
+  .hero-slider { height: 420px; }
+  .hero__title  { font-size: 1.65rem; }
+  .hero__content { max-width: 400px; }
+  .hero__desc { font-size: .86rem; max-width: 340px; }
+  .hero-slider__arrow { width: 40px; height: 40px; font-size: .85rem; }
+  .hero-slider__arrow--prev { left: 14px; }
+  .hero-slider__arrow--next { right: 14px; }
+  .btn--hero-cta,
+  .btn--hero-outline,
+  .btn--hero-outline-white { padding: 10px 22px; font-size: .84rem; }
+
+  /* Sections */
+  .section { padding: 44px 0; }
+
+  /* Categories — 3 visible, scroll for more */
+  .cat-card { flex: 0 0 170px; }
+
+  /* Products — 2 wide */
+  .prod-card { flex: 0 0 calc(50% - 10px); min-width: 200px; }
+  .prod-card__img-wrap img { height: 170px; }
+
+  /* Bulk */
+  .bulk-banner__grid { grid-template-columns: 1fr 260px; }
+  .bulk-banner__main img { height: 250px; }
+
+  /* Best selling — Tablet */
+  .best-selling__layout {
+    grid-template-columns: 240px 1fr;  /* featured narrower on tablet */
+    gap: 16px;
+  }
+  .bs-feat-card img { height: 220px; }
+  .bs-feat-card__body { padding: 12px; }
+  .best-selling__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bs-grid-card img { height: 130px; }
+  .bs-grid-card__body { padding: 10px; }
+
+  /* Agri */
+  .agri-process__steps { grid-template-columns: repeat(2,1fr); gap: 16px; }
+
+  /* Footer */
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer__brand { grid-column: 1 / -1; }
+}
+
+/* =============================================
+   MOBILE (≤ 767px)
+   - Logo left, icons + hamburger right
+   - Green nav bar HIDDEN (side nav takes over)
+   - Full-width search bar below header
+   ============================================= */
+@media (max-width: 767px) {
+
+  /* FIX 2 reverse: hamburger visible ONLY on mobile */
+  .header__hamburger.mobile-only { display: flex !important; }
+  .mobile-only { display: flex !important; }
+
+  .header__top-inner { height: 54px; padding: 0 12px; gap: 4px; }
+  .header__logo-icon { width: 32px; height: 32px; }
+  .header__logo-text { font-size: 1.05rem; }
+  .header__search { display: none; }
+
+  /* Hide location + wishlist + account on mobile */
+  .header__icon-btn:nth-child(1),
+  .header__icon-btn:nth-child(2),
+  .header__icon-btn:nth-child(3) { display: none; }
+
+  /* Hide green nav bar on mobile */
+  .header__nav { display: none; }
+
+  /* Mobile search bar */
+  .header__mobile-search {
+    display: block; background: #fff; padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .header__mobile-search .container { display: flex; gap: 0; }
+  .header__mobile-search input {
+    flex: 1; border: 1.5px solid var(--border);
+    border-right: none; border-radius: 50px 0 0 50px;
+    padding: 9px 16px; font-size: .875rem; outline: none;
+  }
+  .header__mobile-search input::placeholder { color: #aaa; }
+  .header__mobile-search button {
+    background: var(--green); color: #fff;
+    padding: 0 16px; border-radius: 0 50px 50px 0;
+    font-size: .875rem; transition: background .2s;
+  }
+
+  /* ---- Hero Slider — Mobile ---- */
+  .hero-slider { height: 360px; }
+  .hero__content { max-width: 240px; padding: 20px 0; }
+  .hero__title { font-size: 1.3rem; margin-bottom: 10px; }
+  .hero__desc { font-size: .82rem; max-width: 220px; margin-bottom: 20px; }
+  .hero__tag { font-size: .68rem; padding: 4px 12px; margin-bottom: 10px; }
+  .btn--hero-cta { padding: 9px 20px; font-size: .82rem; }
+  .btn--hero-outline,
+  .btn--hero-outline-white { padding: 9px 18px; font-size: .82rem; }
+  .hero__cta-group { gap: 10px; }
+  /* Hide counter on mobile, keep arrows smaller */
+  .hero-slider__counter { display: none; }
+  .hero-slider__arrow { width: 34px; height: 34px; font-size: .78rem; }
+  .hero-slider__arrow--prev { left: 10px; }
+  .hero-slider__arrow--next { right: 10px; }
+  .hero-slider__dots { bottom: 14px; }
+  .hero-slider__dot { width: 8px; height: 8px; }
+  .hero-slider__dot--active { width: 22px; }
+
+  /* Sections */
+  .section { padding: 32px 0; }
+  .section__title { font-size: 1.15rem; }
+
+  /* Sliders scroll freely on mobile */
+  .slider-track-wrap {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .slider-track-wrap::-webkit-scrollbar { display: none; }
+
+  /* Categories */
+  .cat-card { flex: 0 0 145px; padding: 12px 12px 10px; }
+  .cat-card__name { font-size: .8rem; }
+
+  /* Products */
+  .prod-card { flex: 0 0 195px; min-width: 195px; }
+  .prod-card__img-wrap img { height: 155px; }
+
+  /* Bulk */
+  .bulk-banner { padding: 0 0 32px; }
+  .bulk-banner__grid { grid-template-columns: 1fr; gap: 12px; }
+  .bulk-banner__main img { height: 190px; }
+  .bulk-banner__aside { flex-direction: row; gap: 12px; }
+  .bulk-banner__green-card { padding: 18px 14px; }
+  .bulk-banner__green-card h3 { font-size: .9rem; }
+  .bulk-banner__img-card img { min-height: 100%; }
+
+  /* Featured brands */
+  .featured-brands__rice-img img { height: 150px; }
+  .featured-brands__bar { padding: 22px 0 18px; }
+  .featured-brands__title { font-size: 1rem; }
+  .featured-brands__logos { gap: 8px; }
+  .brand-logo-box { padding: 8px 14px; min-width: 86px; }
+  .brand-logo-box span { font-size: .8rem; }
+
+  /* Best selling — Mobile: stack vertically */
+  .best-selling__layout {
+    grid-template-columns: 1fr;   /* single column: featured above, grid below */
+    gap: 16px;
+  }
+  /* Featured card: image left + info right (horizontal layout) */
+  .bs-feat-card {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .bs-feat-card img {
+    width: 140px;
+    height: auto;
+    min-height: 180px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .bs-feat-card__body {
+    padding: 14px;
+    text-align: left;
+    flex: 1;
+  }
+  /* Grid: 2 columns still on mobile */
+  .best-selling__grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bs-grid-card img { height: 110px; }
+  .bs-grid-card__body { padding: 10px; }
+  /* product-controls responsive */
+  .product-controls { gap: 8px; }
+  .add-btn { padding: 7px 14px; font-size: .82rem; }
+
+  /* Agri */
+  .agri-process { padding: 40px 0; }
+  .agri-process__title { font-size: 1.2rem; }
+  .agri-process__steps { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+  .agri-step { padding: 18px 12px; }
+  /* .agri-step__icon { width: 48px; height: 48px; font-size: 1.1rem; } */
+   .agri-step__icon { width: 120px; height: 120px; font-size: 2rem; }
+  .agri-step h4 { font-size: .86rem; }
+  .agri-step p { font-size: .76rem; }
+
+  /* Footer */
+  .footer { padding: 32px 0 0; }
+  .footer__grid { grid-template-columns: 1fr; gap: 22px; padding-bottom: 24px; }
+  .footer__brand { grid-column: auto; }
+}
+
+/* =============================================
+   SMALL MOBILE (≤ 480px)
+   ============================================= */
+@media (max-width: 480px) {
+  .hero-slider { height: 300px; }
+  .hero__title { font-size: 1.12rem; }
+  .hero__content { max-width: 190px; padding: 16px 0; }
+  .hero__desc { font-size: .78rem; max-width: 180px; margin-bottom: 16px; }
+  .hero__cta-group { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .btn--hero-cta, .btn--hero-outline, .btn--hero-outline-white { padding: 8px 18px; font-size: .78rem; }
+  .cat-card { flex: 0 0 128px; }
+  .prod-card { flex: 0 0 178px; min-width: 178px; }
+  /* Best selling: stack featured vertically on very small screens */
+  .bs-feat-card { flex-direction: column; }
+  .bs-feat-card img { width: 100%; height: 180px; min-height: unset; }
+  .bs-feat-card__body { text-align: center; }
+  /* Grid: single column on very small */
+  .best-selling__grid { grid-template-columns: 1fr; }
+  .bs-grid-card { flex-direction: row; }
+  .bs-grid-card img { width: 110px; height: auto; min-height: 100px; flex-shrink: 0; }
+  .agri-process__steps { grid-template-columns: 1fr; }
+  .sidenav { width: 262px; }
+  .bulk-banner__aside { flex-direction: column; }
+}
+
+@media (max-width: 360px) {
+  .hero-slider { height: 260px; }
+  .hero__title { font-size: 1.05rem; }
+  .hero__content { max-width: 180px; }
+  .cat-card { flex: 0 0 115px; }
+  .prod-card { flex: 0 0 162px; min-width: 162px; }
+  .sidenav { width: 240px; }
+}
+
+/* iOS safe area */
+@supports (padding: max(0px)) {
+  .header__top { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+  .sidenav { padding-bottom: env(safe-area-inset-bottom); padding-left: env(safe-area-inset-left); }
+  .footer__bottom { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+}
+
+/* Touch devices — remove hover transforms */
+@media (hover: none) and (pointer: coarse) {
+  .cat-card:hover, .prod-card:hover, .bs-grid-card:hover, .agri-step:hover { box-shadow: none; }
+  .header__nav-item--has-drop > .header__dropdown { display: none; }
+}
