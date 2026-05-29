@@ -165,7 +165,8 @@
   }
 
   makeSlider('catTrack', 'catPrev', 'catNext', visCat);
-  makeSlider('fpTrack',  'fpPrev',  'fpNext',  visProd);
+  makeSlider('fpTrack', 'fpPrev',  'fpNext', visProd);
+  makeSlider('bspTrack', 'bsPrev', 'bsNext', visProd);
 
   /* Best selling arrows — basic state */
   (function () {

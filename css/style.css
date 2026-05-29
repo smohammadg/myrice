@@ -526,10 +526,11 @@ input  { font-family: var(--font); }
 }
 .hero-slider__dot {
   width: 10px; height: 10px; border-radius: 5px;
-  background: rgba(255,255,255,.45);
-  border: 2px solid rgba(255,255,255,.6);
+  background: rgba(190,190,190,.9);
+  border: 2px solid rgba(255,255,255,.9);
   cursor: pointer; padding: 0;
   transition: background .3s, width .3s, border-color .3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.30);
 }
 .hero-slider__dot--active {
   background: #fff; width: 28px;
@@ -852,9 +853,9 @@ input  { font-family: var(--font); }
 .bulk-banner__main { 
  background:  url("../images/bulk-order-1.jpg") no-repeat center;
   position: relative; border-radius: var(--radius); overflow: hidden; 
-  min-height: 456px;
+   min-height: 456px; 
   /* Full height */
-  height: 90vh;
+  /* height: 90vh; */
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -1018,7 +1019,7 @@ input  { font-family: var(--font); }
 /* Desktop: featured card left (narrower) + 2x2 grid right */
 .best-selling__layout {
   display: grid;
-  grid-template-columns: 300px 1fr;   /* fixed-width featured + flexible grid */
+  /*grid-template-columns: 1fr 1fr 1fr;*/   /* fixed-width featured + flexible grid */
   gap: 24px;
   align-items: start;
 }
@@ -1048,8 +1049,8 @@ input  { font-family: var(--font); }
 
 /* 2x2 grid — right side */
 .best-selling__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 }
 .bs-grid-card {
@@ -1225,14 +1226,14 @@ input  { font-family: var(--font); }
 /******************Additional CSS*******************/
 
 .bulk-banner__main {
-  height: 50vh !important;
+  /* height: 50vh !important; */
 }
 @media (max-width: 991px) {
 .slider-track-wrap {
   overflow: visible;
   }
   .bulk-banner__main {
-    height: 40vh;
+    /* height: 40vh; */
   }
 }
 

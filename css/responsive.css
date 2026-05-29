@@ -42,7 +42,7 @@
   .cat-card { flex: 0 0 170px; }
 
   /* Products — 2 wide */
-  .prod-card { flex: 0 0 calc(50% - 10px); min-width: 200px; }
+  .prod-card { flex: 0 0 calc(33% - 10px); min-width: 200px; }
   .prod-card__img-wrap img { height: 170px; }
 
   /* Bulk */
