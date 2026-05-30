@@ -76,6 +76,8 @@
    ============================================= */
 @media (max-width: 767px) {
 
+  .header__logo{ width: 160px;}
+
   /* FIX 2 reverse: hamburger visible ONLY on mobile */
   .header__hamburger.mobile-only { display: flex !important; }
   .mobile-only { display: flex !important; }
@@ -88,7 +90,7 @@
   /* Hide location + wishlist + account on mobile */
   .header__icon-btn:nth-child(1),
   .header__icon-btn:nth-child(2),
-  .header__icon-btn:nth-child(3) { display: none; }
+  .header__icon-btn:nth-child(3) {   }
 
   /* Hide green nav bar on mobile */
   .header__nav { display: none; }
@@ -216,6 +218,7 @@
    SMALL MOBILE (≤ 480px)
    ============================================= */
 @media (max-width: 480px) {
+   .header__logo{ width: 120px;}
   .hero-slider { height: 300px; }
   .hero__title { font-size: 1.12rem; }
   .hero__content { max-width: 190px; padding: 16px 0; }

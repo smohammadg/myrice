@@ -630,22 +630,55 @@
       <div class="featured-brands__bar">
         <div class="container featured-brands__bar-inner">
           <h2 class="featured-brands__title">Featured Brands</h2>
-          <div class="featured-brands__logos">
-            <div class="brand-logo-box"><img src="./images/brand-logos/sumadhura.png" alt="Sumadhura" /></div>
-            <div class="brand-logo-box"><img src="./images/brand-logos/amira.png" alt="Sumadhura" /></div>
-            <div class="brand-logo-box"><img src="./images/brand-logos/laila-1.png" alt="Sumadhura" /></div>
-            <div class="brand-logo-box"><img src="./images/brand-logos/laila-2.png" alt="Sumadhura" /></div>
-            <div class="brand-logo-box"><img src="./images/brand-logos/tilda.png" alt="Sumadhura" /></div>
-            <!-- <div class="brand-logo-box"><span>Sumadhura</span></div>
-          <div class="brand-logo-box"><span>AMIRA</span></div>
-          <div class="brand-logo-box"><span>Tilda</span></div>
-          <div class="brand-logo-box"><span>Laila</span></div>
-          <div class="brand-logo-box"><span>Lalla</span></div> -->
-          </div>
-          <div class="featured-brands__dots">
-            <span class="fb-dot"></span>
-            <span class="fb-dot fb-dot--active"></span>
-            <span class="fb-dot"></span>
+          <div class="swiper featuredBrandsSwiper">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div class="brand-logo-box">
+                  <img src="./images/brand-logos/sumadhura.png" alt="Sumadhura">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="brand-logo-box">
+                  <img src="./images/brand-logos/amira.png" alt="Amira">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="brand-logo-box">
+                  <img src="./images/brand-logos/laila-1.png" alt="Laila">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="brand-logo-box">
+                  <img src="./images/brand-logos/laila-2.png" alt="Laila">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="brand-logo-box">
+                  <img src="./images/brand-logos/tilda.png" alt="Tilda">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="brand-logo-box">
+                  <img src="./images/brand-logos/laila-2.png" alt="Laila">
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="brand-logo-box">
+                  <img src="./images/brand-logos/tilda.png" alt="Tilda">
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -783,7 +816,7 @@
           <div class="footer__logo-icon">
             <img src="./images/footer-logo.png" alt="Prime Rice" />
           </div>
-          <span class="footer__logo-text">Prime Rice</span>
+
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>Nulla nec mi vel lorem tempor sodales.</p>
         <ul class="footer__contact-list">
@@ -828,11 +861,8 @@
           </div>
         </div>
         <div class="footer__app-badges">
-          <a href="#"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
-              alt="App Store" style="width: 100px; height: 34px;" /></a>
-          <a href="#"><img
-              src="	https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png"
-              alt="Google Play" style="width: 100px; height: 34px;" /></a>
+          <a href="#"><img src="images/android.png" alt="App Store" /></a>
+          <a href="#"><img src="images/Ios.png" alt="Google Play" /></a>
         </div>
       </div>
     </div>
@@ -842,7 +872,8 @@
       </div>
     </div>
   </footer>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 

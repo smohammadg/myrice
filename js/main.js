@@ -8,11 +8,11 @@
   'use strict';
 
   /* ── DOM ─────────────────────────────────── */
-  var sidenav        = document.getElementById('sidenav');
+  var sidenav = document.getElementById('sidenav');
   var sidenavOverlay = document.getElementById('sidenavOverlay');
-  var hamburger      = document.getElementById('hamburger');
-  var header         = document.getElementById('header');
-  var cartBadge      = document.getElementById('cartBadge');
+  var hamburger = document.getElementById('hamburger');
+  var header = document.getElementById('header');
+  var cartBadge = document.getElementById('cartBadge');
 
   /* =============================================
      SIDE NAV open / close
@@ -35,7 +35,7 @@
     document.body.style.overflow = '';
   }
 
-  if (hamburger)      hamburger.addEventListener('click', openSidenav);
+  if (hamburger) hamburger.addEventListener('click', openSidenav);
   if (sidenavOverlay) sidenavOverlay.addEventListener('click', closeSidenav);
 
   document.addEventListener('keydown', function (e) {
@@ -52,7 +52,7 @@
     sidenav.querySelectorAll('.sidenav__toggle').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var item = btn.closest('.sidenav__item');
-        var sub  = item.querySelector('.sidenav__sub');
+        var sub = item.querySelector('.sidenav__sub');
         var open = item.classList.contains('is-expanded');
 
         /* close all */
@@ -120,8 +120,8 @@
      ============================================= */
   function makeSlider(trackId, prevId, nextId, getCount) {
     var track = document.getElementById(trackId);
-    var prev  = document.getElementById(prevId);
-    var next  = document.getElementById(nextId);
+    var prev = document.getElementById(prevId);
+    var next = document.getElementById(nextId);
     if (!track || !prev || !next) return;
 
     var index = 0;
@@ -131,7 +131,7 @@
       if (!el) return 0;
       return el.offsetWidth + (parseFloat(getComputedStyle(track).gap) || 20);
     }
-    function total()  { return track.children.length; }
+    function total() { return track.children.length; }
     function maxIdx() { return Math.max(0, total() - Math.floor(getCount())); }
 
     function go(n) {
@@ -151,21 +151,21 @@
 
   function visCat() {
     var w = window.innerWidth;
-    if (w <= 480)  return 2;
-    if (w <= 767)  return 2.5;
+    if (w <= 480) return 2;
+    if (w <= 767) return 2.5;
     if (w <= 1024) return 3;
     return 5;
   }
   function visProd() {
     var w = window.innerWidth;
-    if (w <= 480)  return 1.2;
-    if (w <= 767)  return 1.5;
+    if (w <= 480) return 1.2;
+    if (w <= 767) return 1.5;
     if (w <= 1024) return 2;
     return 4;
   }
 
   makeSlider('catTrack', 'catPrev', 'catNext', visCat);
-  makeSlider('fpTrack', 'fpPrev',  'fpNext', visProd);
+  makeSlider('fpTrack', 'fpPrev', 'fpNext', visProd);
   makeSlider('bspTrack', 'bsPrev', 'bsNext', visProd);
 
   /* Best selling arrows — basic state */
@@ -175,7 +175,7 @@
     if (!bp || !bn) return;
     bp.disabled = true; bp.style.opacity = '.3';
     bn.addEventListener('click', function () { bp.disabled = false; bp.style.opacity = '1'; });
-    bp.addEventListener('click', function () { bp.disabled = true;  bp.style.opacity = '.3'; });
+    bp.addEventListener('click', function () { bp.disabled = true; bp.style.opacity = '.3'; });
   })();
 
   /* =============================================
@@ -184,11 +184,11 @@
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('.qty__btn');
     if (!btn) return;
-    var wrap  = btn.closest('.qty');
+    var wrap = btn.closest('.qty');
     var valEl = wrap && wrap.querySelector('.qty__val');
     if (!valEl) return;
     var v = parseInt(valEl.textContent, 10) || 1;
-    if (btn.classList.contains('qty__btn--plus'))  v = Math.min(v + 1, 99);
+    if (btn.classList.contains('qty__btn--plus')) v = Math.min(v + 1, 99);
     if (btn.classList.contains('qty__btn--minus')) v = Math.max(v - 1, 1);
     valEl.textContent = v;
     valEl.style.transform = 'scale(1.3)';
@@ -222,21 +222,21 @@
      4 slides, auto-play 5s, arrows, dots, swipe/drag
      ============================================= */
   (function () {
-    var track      = document.getElementById('heroTrack');
-    var prevBtn    = document.getElementById('heroSliderPrev');
-    var nextBtn    = document.getElementById('heroSliderNext');
-    var dotsWrap   = document.getElementById('heroSliderDots');
-    var currentEl  = document.getElementById('heroCurrentSlide');
-    var totalEl    = document.getElementById('heroTotalSlides');
+    var track = document.getElementById('heroTrack');
+    var prevBtn = document.getElementById('heroSliderPrev');
+    var nextBtn = document.getElementById('heroSliderNext');
+    var dotsWrap = document.getElementById('heroSliderDots');
+    var currentEl = document.getElementById('heroCurrentSlide');
+    var totalEl = document.getElementById('heroTotalSlides');
 
     if (!track) return;   /* hero not on this page */
 
-    var slides     = track.querySelectorAll('.hero__slide');
-    var dots       = dotsWrap ? dotsWrap.querySelectorAll('.hero-slider__dot') : [];
-    var total      = slides.length;
-    var current    = 0;
-    var autoTimer  = null;
-    var AUTOPLAY   = 5000;   /* 5 seconds per slide */
+    var slides = track.querySelectorAll('.hero__slide');
+    var dots = dotsWrap ? dotsWrap.querySelectorAll('.hero-slider__dot') : [];
+    var total = slides.length;
+    var current = 0;
+    var autoTimer = null;
+    var AUTOPLAY = 5000;   /* 5 seconds per slide */
     var PAUSE_AFTER_INTERACT = 8000;
 
     /* Update total counter */
@@ -293,14 +293,14 @@
 
     /* ---- Keyboard arrows ---- */
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft')  { goTo(current - 1); pauseThenResume(); }
+      if (e.key === 'ArrowLeft') { goTo(current - 1); pauseThenResume(); }
       if (e.key === 'ArrowRight') { goTo(current + 1); pauseThenResume(); }
     });
 
     /* ---- Touch / Mouse swipe ---- */
     var dragStartX = null;
     var isDragging = false;
-    var MIN_SWIPE  = 50;   /* px to count as swipe */
+    var MIN_SWIPE = 50;   /* px to count as swipe */
 
     function dragStart(x) { dragStartX = x; isDragging = true; track.classList.add('is-dragging'); }
     function dragEnd(x) {
@@ -316,10 +316,10 @@
 
     /* Touch events */
     track.addEventListener('touchstart', function (e) { dragStart(e.touches[0].clientX); }, { passive: true });
-    track.addEventListener('touchend',   function (e) { dragEnd(e.changedTouches[0].clientX); }, { passive: true });
+    track.addEventListener('touchend', function (e) { dragEnd(e.changedTouches[0].clientX); }, { passive: true });
 
     /* Mouse drag events */
-    track.addEventListener('mousedown',  function (e) { dragStart(e.clientX); e.preventDefault(); });
+    track.addEventListener('mousedown', function (e) { dragStart(e.clientX); e.preventDefault(); });
     document.addEventListener('mouseup', function (e) { if (isDragging) dragEnd(e.clientX); });
 
     /* ---- Pause on hover ---- */
@@ -335,18 +335,43 @@
   /* =============================================
      FEATURED BRANDS DOTS
      ============================================= */
-  var fbDots = document.querySelectorAll('.fb-dot');
-  var fbIdx  = 0;
-  function setFbDot(i) {
-    fbDots.forEach(function (d) { d.classList.remove('fb-dot--active'); });
-    if (fbDots[i]) fbDots[i].classList.add('fb-dot--active');
-    fbIdx = i;
-  }
-  fbDots.forEach(function (d, i) { d.addEventListener('click', function () { setFbDot(i); }); });
-  setInterval(function () {
-    if (!fbDots.length) return;
-    setFbDot((fbIdx + 1) % fbDots.length);
-  }, 3000);
+  var featuredBrandsSwiper = new Swiper('.featuredBrandsSwiper', {
+
+    loop: true,
+
+    speed: 800,
+
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+
+    breakpoints: {
+
+      0: {
+        slidesPerView: 2,
+        spaceBetween: 15
+      },
+
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+
+      992: {
+        slidesPerView: 5,
+        spaceBetween: 20
+      }
+
+    }
+
+  });
 
   /* =============================================
      NEWSLETTER
@@ -354,7 +379,7 @@
   var nlForm = document.querySelector('.footer__newsletter-form');
   if (nlForm) {
     var nlInput = nlForm.querySelector('input');
-    var nlBtn   = nlForm.querySelector('button');
+    var nlBtn = nlForm.querySelector('button');
     if (nlBtn) {
       nlBtn.addEventListener('click', function () {
         var val = nlInput ? nlInput.value.trim() : '';
